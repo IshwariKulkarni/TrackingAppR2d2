@@ -133,5 +133,19 @@ namespace TrackingApp.Controllers
                 return BadRequest("Error deleting record.");
             }
         }
+        [HttpGet]
+[Route("SendMail")]
+public IActionResult SendMail()
+{
+    bool result = _emailServices.SendMail();
+    if (result)
+    {
+        return Ok("Warning Emails Sent Successfully");
+    }
+    else
+    {
+        return BadRequest("Error sending warning emails.");
+    }
+}
     }
 }
