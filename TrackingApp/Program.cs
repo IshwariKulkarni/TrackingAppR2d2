@@ -18,6 +18,8 @@ builder.Services.AddDbContext<TrackingDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("connMSSQL")));
 builder.Services.AddTransient<TrackingDbContext>();
 builder.Services.AddTransient<ITrackApp, TrackApp>();
+builder.Services.AddTransient<IEmailServices, EmailServices>();
+builder.Services.AddLogging(builder => builder.AddConsole());
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
