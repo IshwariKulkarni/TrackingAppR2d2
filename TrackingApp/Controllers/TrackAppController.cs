@@ -12,13 +12,15 @@ namespace TrackingApp.Controllers
     public class ExcelImportController : ControllerBase
     {
         private readonly ITrackApp _trackApp;
+private readonly IEmailServices _emailServices;
 
-        public ExcelImportController(ITrackApp trackApp)
-        {
-            _trackApp = trackApp;
-           
+public ExcelImportController(ITrackApp trackApp,IEmailServices emailServices)
+{
+    _trackApp = trackApp;
+    _emailServices = emailServices;
+   
 
-        }
+}
 
         [HttpPost("import")]
         public IActionResult ImportExcelData([FromBody] string filePath)
